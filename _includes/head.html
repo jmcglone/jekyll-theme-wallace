@@ -1,22 +1,27 @@
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" width="device-width, initial-scale=1.0">
-	<meta name="description" content="{{ page.description }}">
-	<meta name="author" content="Jonathan McGlone">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+	<link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
+
 	<!-- favicon
 	<link rel="shortcut icon" href="/img/ico/favicon.png">
 	-->
-	<title>{{ page.title }} | Jonathan McGlone | Librarian, Front-End Developer, Digital Publisher, Project Manager, Music Enthusiast, Web Noodler.</title>		
+	<title>{{ page.title }} | {{ page.author }}</title>
+	<meta name="description" content="{{ page.description }}">
+	<meta name="author" content="{{ site.author }}">
 	<!-- styles -->
-	<link href="/css/bootstrap.css" rel="stylesheet">
-	<link href="/css/jumbotron-narrow.css" rel="stylesheet">
-	<link href="/css/style.css" rel="stylesheet">
-	
+	<link href="/assets/css/bootstrap.css" rel="stylesheet">
+	<link href="/assets/css/main.css" rel="stylesheet">
+
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
   <script src="../../assets/js/html5shiv.js"></script>
   <script src="../../assets/js/respond.min.js"></script>
 	<![endif]-->
-	<!-- google analytics - i will not share this data with google -->
-	{% include analytics.html %}	
+	<!-- google analytics -->
+	{% if jekyll.environment == 'production' and site.google_analytics %}
+		{% include analytics.html %}
+	{% endif %}
 </head>
